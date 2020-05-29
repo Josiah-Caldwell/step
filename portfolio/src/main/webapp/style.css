@@ -2,8 +2,10 @@
   margin-left: auto;
   margin-right: auto;
   width: 650px;
+  background-color: dodgerblue;
 }
 
 #greeting-container {
   margin-top: 20px;
+  background-color: aquamarine;
 }
