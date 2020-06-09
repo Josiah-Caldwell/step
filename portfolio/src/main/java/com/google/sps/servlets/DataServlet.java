@@ -59,27 +59,23 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
-    Query query = new Query("Employee").addSort("Key", SortDirection.DESCENDING);
+    Query query = new Query("Employee");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
     for (Entity employee : results.asIterable()) {
         try {
             String comment = (String) employee.getProperty("comment");
-            employeeComment.add(comment);
-            System.out.println(comment);            
+            employeeComment.add(comment);      
         } catch (ClassCastException e) {
             employeeComment.add("Invalid String");
         }
     }
+    
+    //Limit the number of comments
     for(int i = 0; i < getNumComments(request); i++) {
         response.setContentType("text/html;");
         response.getWriter().println(employeeComment.get(i));
     }
-    
-    
-    // String json = (employeeComment.size() - 1);
-    // response.setContentType("text/html;");
-    // response.getWriter().println(employeeComment.get);
   }
 
   @Override

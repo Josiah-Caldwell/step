@@ -9,8 +9,6 @@
   <body>
     <div id="content">
       <h1>My Portfolio</h1>
-      <button onClick="greetJSONString()">JSON!</button>
-      <div id="named-greeting-container"></div>
       <div id="section">
         
         <p><img src="/images/Mark.png" alt="Mark of the Outsider" id="Mark">My name is Josiah Caldwell, I am a computer science student at
@@ -57,10 +55,10 @@
         <form action="/data" method="POST">
            <label>Name:</label><br>
            <input type="text" name="name-box">Name<br>
-           <textarea name="comment-box" id="comment-box" style="width:194px">Not yet Functional</textarea>
+           <textarea name="comment-box" id="comment-box" style="width:194px">Your comment here!</textarea>
            <input type="submit">
         </form>
-        <button onClick="fetchComments()">Load Comments!</button>
+        <button onClick="commentString()">Load Comments!</button>
         <label id="number-comments-label">Number of comments to display: </label>
         <input type="number" id="number-comments" name="number-comments" min="1" max="10" value="3">
         <div id="stored-comments-container">

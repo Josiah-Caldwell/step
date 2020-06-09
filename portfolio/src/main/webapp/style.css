@@ -1,5 +1,5 @@
 body {
-    background-color: #ccb3ff;
+    background-color:#ffcc66 ;
 }
 #content {
   margin-left: auto;
@@ -9,7 +9,7 @@ body {
 #section {
   margin-bottom: 2rem;
   padding: 2rem;
-  background-color:#ffcc66;
+  background-color:#ccb3ff;
   height: fit-content;
   border-radius: 8px;
 }
@@ -23,5 +23,5 @@ body {
 
 #greeting-container {
   margin-top: 20px;
-  background-color: #ffcc66;
+  background-color: #ccb3ff;
 }
