@@ -9,33 +9,65 @@
   <body>
     <div id="content">
       <h1>My Portfolio</h1>
-      <p>My name is Josiah Caldwell, I am a computer science student at
+      <button onClick="greetJSONString()">JSON!</button>
+      <div id="named-greeting-container"></div>
+      <div id="section">
+        
+        <p><img src="/images/Mark.png" alt="Mark of the Outsider" id="Mark">My name is Josiah Caldwell, I am a computer science student at
            North Carolina A&T State University and this is my second year at Google. 
            I spent my last summer working with some wonderful people on the Gmail team in Sunnyvale, CA. 
            I learned a lot from Google last year and i hope to do the same moving forward.
-      </p>
-      <p>I first got into computer science because I was interested in the concept of hacking. 
+        </p>
+        <p>I first got into computer science because I was interested in the concept of hacking. 
           The idea of being able to enter someone else's machine and do with it as you please still fascinates me. 
           Of course even more important than the infiltration is the systems defense which is I am specializing in 
           Cybersecurity for my Bachelor's degree.
-      </p>
-      <p>As far as my interest I enjoy playing video games and watching anime. 
+        </p>
+        <p>As far as my interest I enjoy playing video games and watching anime. 
           My favorite video game series is Dishonored but my favorite singular game is Kid Icarus: Uprising.
           My favorite anime is K, yes just the letter, the artstyle and the soundwork combine to make a masterpiece.
-      </p>
-      <img src="/images/Mark.png" alt="Mark of the Outsider">
+        </p>
       <h4>This is my portfolio, enjoy!</h4>
-      <h3>Projects</h3>
-      <ul>
-          <li>Space Invaders Replica</li>
-          <li>Gmail Spam Detection Feautures</li>
-          <li>Mental Health Checkup App</li>
-      </ul>
-      <a href="https://www.linkedin.com/in/josiah-caldwell-92688316a">LinkedIn</a>
-      <a href="https://github.com/Josiah-Caldwell">GitHub</a>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      </div>
+      <div id="section">
+        <h3>Projects</h3>
+        <ul>
+            <li>Space Invaders Replica(Spring 2019)</li>
+            <p>Created a replica of space invaders from scratch. 
+              This project taught me how to take user input for use in controlling on screen behavior,
+              animate sprites,use spritesheets, use viewports, and how to make an application take focus.
+            </p>
+            <li>Gmail Spam Detection Feautures(Summer 2019)</li>
+            <li>Mental Health Checkup App(Fall 2019)</li>
+        </ul>
+        <a href="https://www.linkedin.com/in/josiah-caldwell-92688316a">
+          <img src="/images/linkedIn.png" width="60" height="60">
+        </a>
+        <a href="https://github.com/Josiah-Caldwell">
+          <img src="/images/GitHub.webp" width="60" height="60">
+        </a>
+      </div>
+      <div id="section">
+        <p>Click here to get a random message:</p>
+        <button onclick="addRandomGreeting()">Hello</button>
+        <div id="greeting-container"></div>
+      </div>
+      <div id="section">
+        <h3>Leave a Comment!</h3>
+        <form action="/data" method="POST">
+           <label>Name:</label><br>
+           <input type="text" name="name-box">Name<br>
+           <textarea name="comment-box" id="comment-box" style="width:194px">Not yet Functional</textarea>
+           <input type="submit">
+        </form>
+        <button onClick="fetchComments()">Load Comments!</button>
+        <label id="number-comments-label">Number of comments to display: </label>
+        <input type="number" id="number-comments" name="number-comments" min="1" max="10" value="3">
+        <div id="stored-comments-container">
+            <ul></ul>
+        </div>
+        <button onClick="deleteComments()" style="background-color:red">Delete Comments</button>
+      </div>
     </div>
   </body>
 </html>

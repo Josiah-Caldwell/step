@@ -27,3 +27,53 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+/** 
+ * Adds a comment to the top of the page
+ */
+function greetJSONString() {
+  fetch('/data').then(response => response.text()).then((json) => {
+    document.getElementById('named-greeting-container').innerText = json;
+  });
+  console.log("Add JSON String: "/*Get text from fetch*/);
+}
+
+function fetchComments() {
+  const commentsPromise = fetch("/data?" + "number-comments=" + document.getElementById("number-comments").value); 
+  commentsPromise.then(response => response.text()).then(loadComments);
+}
+
+/**
+ * Loads existing comments under comment box
+ * @param ArrayList<String> comments
+ */
+function loadComments(comments) {
+  const commentList = document.getElementById("stored-comments-container");
+  console.log(commentList);
+  //Remove all children to prevent dusplicates
+  while (commentList.firstChild) {
+    commentList.removeChild(commentList.firstChild);
+  }
+
+  for (comment of comments) {
+    const commentListItem = document.createElement('li');
+    commentListItem.innerText = comment;
+    commentList.appendChild(commentListItem);
+    console.log(comment);
+    //console.log(commentList);
+  }
+  console.log("Add employee comments: "/*Get text from fetch*/);
+}
+
+function commentString() {
+  fetch("/data?" + "number-comments=" + document.getElementById("number-comments").value).then(response => response.text()).then((json) => {
+    document.getElementById('stored-comments-container').innerText = json;
+  });
+  console.log("Add comment String to list: "/*Get text from fetch*/);
+}
+function deleteComments() {
+  const commentList = document.getElementById("stored-comments-container");
+  //Remove all children to prevent dusplicates
+  while (commentList.firstChild) {
+    commentList.removeChild(commentList.firstChild);
+  }
+}
