@@ -27,3 +27,24 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+/** 
+ * Adds a comment to the top of the page
+ */
+function greetJSONString() {
+  fetch('/data').then(response => response.text()).then((json) => {
+    document.getElementById('named-greeting-container').innerText = json;
+  });
+}
+
+function commentString() {
+  fetch("/data?" + "number-comments=" + document.getElementById("number-comments").value).then(response => response.text()).then((json) => {
+    document.getElementById('stored-comments-container').innerText = json;
+  });
+}
+function deleteComments() {
+  const commentList = document.getElementById("stored-comments-container");
+  //Remove all children to prevent dusplicates
+  while (commentList.firstChild) {
+    commentList.removeChild(commentList.firstChild);
+  }
+}
